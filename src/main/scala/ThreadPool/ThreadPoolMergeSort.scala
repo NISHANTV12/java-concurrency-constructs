@@ -32,4 +32,6 @@ object ThreadPoolMergeSort extends App {
   private val value: Future[List[Int]] = executorService.submit(mergeSort)
 
   println(value.get)
+
+  executorService.shutdown()
 }

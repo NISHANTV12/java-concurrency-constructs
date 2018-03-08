@@ -1,6 +1,6 @@
 package MergeSort
 
-object MergeSort extends App {
+object MergeSort {
 
   def merge(left: List[Int], right: List[Int]): List[Int] = {
     def tailRecMerge(left: List[Int], right: List[Int], acc: List[Int]): List[Int] = {

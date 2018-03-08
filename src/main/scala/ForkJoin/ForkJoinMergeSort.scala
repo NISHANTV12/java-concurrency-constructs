@@ -16,10 +16,11 @@ class ForkJoinMergeSort(
       val left: RecursiveTask[List[Int]]  = new ForkJoinMergeSort(SEQUENTIAL_THRESHOLD, numbers.take(midpoint))
       val right: RecursiveTask[List[Int]] = new ForkJoinMergeSort(SEQUENTIAL_THRESHOLD, numbers.drop(midpoint))
       ForkJoinTask.invokeAll(left, right)
-      MergeSort.MergeSort.merge(left.getRawResult, right.getRawResult)
+      MergeSort.MergeSort.merge(left.join, right.join)
     }
   }
 }
+
 object ForkJoinMergeSort extends App {
 
   val forkJoinPool              = new ForkJoinPool(4)
